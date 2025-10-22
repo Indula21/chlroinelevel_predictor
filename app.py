@@ -66,10 +66,10 @@ with tab2:
         color:#e0e0e0;
         font-family:monospace;
     ">
-        <b>🧪 Predicted Chlorine Concentration</b><br>
+        <b>🧪Predicted Chlorine Concentration</b><br>
         <span style='color:#81c784'>RGB:</span> {new_rgb.tolist()}<br>
         <span style='color:#00e676'>Predicted Concentration:</span>
-        <b>{predicted_conc[0]:.3f} mg/L</b>
+        <b>{predicted_conc[0]:.6f} ppm </b>
     </div>
     """,
     unsafe_allow_html=True
