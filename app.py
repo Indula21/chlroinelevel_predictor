@@ -21,13 +21,14 @@ with tab1:
     X = np.array([
         [254,254,6],
         [254,254,52],
-        [254,254,87],
-        [254,253,3],
-        [254,253,86],
+        [254,254,3],
+        [254,254,64],
+        [254,254,72],
+        [254,254,169]
     ])
-    y = np.array([0.007981132, 0.00607177, 0.006714286, 0.008605634, 0.00607177])
+    y = np.array([599.814, 449.8605,649.7985,399.876,299.907,249.9225])
 
-    model = RandomForestRegressor(n_estimators=200, random_state=42)
+    model = RandomForestRegressor(n_estimators=400, random_state=42)
 
     loo = LeaveOneOut()
     y_pred = cross_val_predict(model, X, y, cv=loo)
@@ -47,9 +48,9 @@ with tab1:
 
     # Predict new sample
     st.subheader("Predict New Sample")
-    r = st.number_input("R value", value=254)
-    g = st.number_input("G value", value=254)
-    b = st.number_input("B value", value=64)
+    r = st.number_input("R value=")
+    g = st.number_input("G value=")
+    b = st.number_input("B value=")
 
     new_rgb = np.array([[r, g, b]])
     model.fit(X, y)
