@@ -16,7 +16,7 @@ tab1, tab2 = st.tabs(["🎨 RGB Image Analyzer", "🔎 Algoritham"])
 
 # ---------------- Tab 2: LOOCV ----------------
 with tab2:
-    st.header("📊 Calibration Samples ")
+    st.header("📊Calibration Samples ")
 
     # Calibration data
     X = np.array([
