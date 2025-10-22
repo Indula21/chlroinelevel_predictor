@@ -57,7 +57,7 @@ with tab2:
     model.fit(X, y)
     predicted_conc = model.predict(new_rgb)
 
-    st.success(f"Predicted concentration for RGB {new_rgb.tolist()}: {predicted_conc[0]:.6f}")
+    st.success(f"Predicted concentration for RGB {new_rgb.tolist()}:                     {predicted_conc[0]:.6f}")
 
 
 # ---------------- Tab 1: RGB Analyzer ----------------
