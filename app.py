@@ -56,8 +56,26 @@ with tab2:
     new_rgb = np.array([[r, g, b]])
     model.fit(X, y)
     predicted_conc = model.predict(new_rgb)
+    st.markdown(
+    f"""
+    <div style="
+        background-color:#1b1b1b;
+        border-left:6px solid #00e676;
+        padding:12px 18px;
+        border-radius:8px;
+        color:#e0e0e0;
+        font-family:monospace;
+    ">
+        <b>🧪 Predicted Chlorine Concentration</b><br>
+        <span style='color:#81c784'>RGB:</span> {new_rgb.tolist()}<br>
+        <span style='color:#00e676'>Predicted Concentration:</span>
+        <b>{predicted_conc[0]:.3f} mg/L</b>
+    </div>
+    """,
+    unsafe_allow_html=True
+)
 
-    st.success(f"Predicted concentration for RGB {new_rgb.tolist()}:                     {predicted_conc[0]:.6f}")
+    
 
 
 # ---------------- Tab 1: RGB Analyzer ----------------
