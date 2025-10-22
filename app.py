@@ -11,13 +11,14 @@ st.set_page_config(page_title="LOOCV & RGB Analyzer", layout="wide")
 st.title("Machine Learning & Image RGB Analyzer")
 
 # Tabs for two parts of your code
-tab1, tab2 = st.tabs(["🔎 LOOCV Random Forest", "🎨 RGB Image Analyzer"])
+tab1, tab2 = st.tabs(["🎨 RGB Image Analyzer", "🔎 Algoritham"])
 
-# ---------------- Tab 1: LOOCV ----------------
-with tab1:
-    st.header("Leave-One-Out Cross Validation (RandomForest)")
 
-    # Example data
+# ---------------- Tab 2: LOOCV ----------------
+with tab2:
+    st.header("Leave-One-Out Cross Validation")
+
+    # Calibration data
     X = np.array([
         [254,254,6],
         [254,254,52],
@@ -33,7 +34,7 @@ with tab1:
     loo = LeaveOneOut()
     y_pred = cross_val_predict(model, X, y, cv=loo)
 
-    st.subheader("Predicted vs Actual (LOOCV)")
+    st.subheader("Actual Vs Predicted Concentration")
     for actual, pred in zip(y, y_pred):
         st.write(f"Actual: {actual:.6f}, Predicted: {pred:.6f}")
 
@@ -59,8 +60,8 @@ with tab1:
     st.success(f"Predicted concentration for RGB {new_rgb.tolist()}: {predicted_conc[0]:.6f}")
 
 
-# ---------------- Tab 2: RGB Analyzer ----------------
-with tab2:
+# ---------------- Tab 1: RGB Analyzer ----------------
+with tab1:
     st.header("Average RGB Calculator from Image")
 
     uploaded_file = st.file_uploader("Upload an image", type=["jpg", "jpeg", "png"])
