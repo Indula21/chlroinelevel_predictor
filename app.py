@@ -16,7 +16,7 @@ tab1, tab2 = st.tabs(["🎨 RGB Image Analyzer", "🔎 Algoritham"])
 
 # ---------------- Tab 2: LOOCV ----------------
 with tab2:
-    st.header("Leave-One-Out Cross Validation")
+    st.header("📊 Calibration Samples ")
 
     # Calibration data
     X = np.array([
@@ -49,9 +49,9 @@ with tab2:
 
     # Predict new sample
     st.subheader("Predict New Sample")
-    r = st.number_input("R value=")
-    g = st.number_input("G value=")
-    b = st.number_input("B value=")
+    r = st.number_input("R value")
+    g = st.number_input("G value")
+    b = st.number_input("B value")
 
     new_rgb = np.array([[r, g, b]])
     model.fit(X, y)
@@ -62,7 +62,7 @@ with tab2:
 
 # ---------------- Tab 1: RGB Analyzer ----------------
 with tab1:
-    st.header("Average RGB Calculator from Image")
+    st.header("Average RGB Calculator")
 
     uploaded_file = st.file_uploader("Upload an image", type=["jpg", "jpeg", "png"])
     if uploaded_file is not None:
